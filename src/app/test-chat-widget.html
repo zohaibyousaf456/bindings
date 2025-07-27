@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website with Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+        .config-example {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Welcome to My Website</h1>
+        <p>This is a sample website with an AI chat assistant. The agent ID is now configured in the HTML!</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>💬 AI Chat Support</h3>
+                <p>Get instant help from our AI assistant powered by your custom knowledge base.</p>
+            </div>
+            <div class="feature">
+                <h3>🎯 Smart Responses</h3>
+                <p>Receive accurate answers based on your specific business information.</p>
+            </div>
+            <div class="feature">
+                <h3>📱 Mobile Friendly</h3>
+                <p>Works perfectly on desktop, tablet, and mobile devices.</p>
+            </div>
+        </div>
+        
+        <div class="config-example">
+            <strong>Configuration Example:</strong><br><br>
+            &lt;script src="chat-agent-widget.js"<br>
+            &nbsp;&nbsp;data-agent-id="80db399f-28fa-4b53-8f0f-df5b18278402"<br>
+            &nbsp;&nbsp;data-backend-url="http://localhost:8000"<br>
+            &nbsp;&nbsp;data-theme="blue"<br>
+            &nbsp;&nbsp;data-position="bottom-right"<br>
+            &nbsp;&nbsp;data-title="🤖 My Custom Assistant"<br>
+            &nbsp;&nbsp;data-welcome-message="Hi! I'm here to help!"<br>
+            &nbsp;&nbsp;data-auto-open="false"&gt;<br>
+            &lt;/script&gt;
+        </div>
+        
+        <p style="margin-top: 50px; font-size: 1em; opacity: 0.7;">
+            Click the chat button to start a conversation! 
+            <br>The widget automatically reads the agent ID from the script tag.
+        </p>
+    </div>
+
+    <!-- Chat widget with configuration via data attributes -->
+    <script src="chat-agent-widget.js"
+            data-agent-id="80db399f-28fa-4b53-8f0f-df5b18278402"
+            data-backend-url="http://localhost:8000"
+            data-theme="blue"
+            data-position="bottom-right"
+            data-title="🤖 AI Chat Assistant"
+            data-welcome-message="Hello! How can I help you today?"
+            data-auto-open="false"
+            data-show-welcome-message="true"
+            data-button-text="Start Chat"
+            data-placeholder="Type your message..."
+            data-enable-animations="true"
+            data-show-timestamps="false"
+            data-remember-state="true">
+    </script>
+    
+    <!-- Optional: Add some custom behavior -->
+    <script>
+        // Optional: You can still customize the widget after it loads
+        window.addEventListener('load', function() {
+            console.log('Chat widget loaded with Agent ID:', window.chatAgentWidget?.config?.agentId);
+            
+            // Example: Programmatically open the chat after 5 seconds
+            // setTimeout(() => {
+            //     if (window.chatAgentWidget) {
+            //         window.chatAgentWidget.open();
+            //     }
+            // }, 5000);
+        });
+    </script>
+</body>
+</html>
