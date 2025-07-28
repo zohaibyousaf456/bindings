@@ -34,3 +34,34 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+Chat Widget Integration
+This project includes a fully configurable AI chat widget that can be embedded on any HTML page using a simple script tag.
+
+💡 How to Use the Chat Agent
+Open the test-chat-widget.html file.
+
+Locate the script tag at the bottom of the HTML:
+
+
+<script src="https://cdn.jsdelivr.net/gh/zohaibyousaf456/chat-agent-widget@v1.0.0/chat-agent-widget.js"
+        data-agent-id="80db399f-28fa-4b53-8f0f-df5b18278402"
+        data-backend-url="http://localhost:8000"
+        data-theme="blue"
+        data-position="bottom-right"
+        data-title="🤖 AI Chat Assistant"
+        data-welcome-message="Hello! How can I help you today?"
+        data-auto-open="false"
+        data-show-welcome-message="true"
+        data-button-text="Start Chat"
+        data-placeholder="Type your message..."
+        data-enable-animations="true"
+        data-show-timestamps="false"
+        data-remember-state="true">
+</script>
+To change the agent, simply update the data-agent-id value to your desired Agent ID:
+
+
+data-agent-id="YOUR_NEW_AGENT_ID"
+Save the file and open it in the browser to reflect the updated configuration.
