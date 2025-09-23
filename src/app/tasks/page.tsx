@@ -1,12 +1,11 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
-import { Calendar, ChevronDown, ChevronLeft, ChevronRight, Filter, Grid2X2, List, MoreVertical, Plus, Sparkles } from "lucide-react"
+import { ChevronDown, ChevronLeft, ChevronRight, MoreVertical, Plus, Play } from "lucide-react"
 
 type Status = "TO DO" | "IN PROGRESS" | "ON HOLD" | "COMPLETE"
 
@@ -71,13 +70,8 @@ export default function TasksPage() {
     setTasks(SAMPLE_TASKS)
   }, [])
 
-  const filtered = useMemo(() => {
-    return tasks.filter((t) => {
-      const a = assignedFilter.length ? t.assignedTo.some((u) => assignedFilter.includes(u)) : true
-      const s = statusFilter.length ? statusFilter.includes(t.status) : true
-      return a && s
-    })
-  }, [tasks, assignedFilter, statusFilter])
+  // Visual filters only for now — show all tasks like the screenshot
+  const filtered = tasks
 
   return (
     <div className="mx-auto w-full max-w-[1200px] space-y-6 p-6">
@@ -95,7 +89,7 @@ export default function TasksPage() {
             </Link>
             <button className="inline-flex items-center gap-2 hover:underline">
               <span className="inline-flex size-7 items-center justify-center rounded-full border">
-                <span className="i-lucide-play size-3" />
+                <Play className="size-3" />
               </span>
               Watch a Video
             </button>
@@ -138,7 +132,7 @@ export default function TasksPage() {
                 <div className="text-right">Actions</div>
               </div>
 
-              {filtered.map((t, idx) => (
+              {filtered.map((t: Task, idx: number) => (
                 <div
                   key={t.id}
                   className={cn(
@@ -154,7 +148,7 @@ export default function TasksPage() {
                   </div>
                   <div>
                     <div className="flex -space-x-2">
-                      {t.assignedTo.map((n) => (
+                      {t.assignedTo.map((n: string) => (
                         <AvatarCircle key={n} name={n} />
                       ))}
                     </div>
